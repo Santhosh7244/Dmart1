@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import testbase.WebTestBase;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.Set;
 
 public class Utility extends WebTestBase {
@@ -36,6 +37,17 @@ public class Utility extends WebTestBase {
                }
            }
        }
+    }
+    public static void dropDownElement(List<WebElement> elements, String textToSearchInsideDropDown) {
+
+        for (WebElement e : elements) {
+            System.out.println(e.getText());
+            if (e.getText().equalsIgnoreCase(textToSearchInsideDropDown)) {
+                System.out.println(e);
+                e.click();
+            }
+
+        }
     }
     public static boolean isSelectedVerify(WebElement element ){
         return element.isSelected();

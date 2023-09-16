@@ -25,16 +25,19 @@ public class LogInTest extends WebTestBase {
     }
 
     @Test(description = "Verify Login With Valid Username and Password")
-    public void verifyLoginWithValidUsernameAndValidPassword() {
-        SoftAssert softAssert = new SoftAssert();
+    public void verifyLoginWithValidUsernameAndValidPassword() throws InterruptedException {
+        // SoftAssert softAssert = new SoftAssert();
         logInPage.clickOnCareer();
         logInPage.handleGetWindow1();
+        logInPage.signInBtnClickable();
         logInPage.login(prop.getProperty("username"), prop.getProperty("password"));
+        Thread.sleep(3000);
+        logInPage.clickOnSubmit();
 
     }
 
     @AfterMethod
     public void tearDown() {
-        driver.close();
+        driver.quit();
     }
 }

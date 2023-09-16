@@ -18,20 +18,23 @@ public class CareerTest extends WebTestBase {
         initialization();
         careerPage = new CareerPage();
     }
-    @Test(description = "Verify functionality Get Window Handle ")
+    @Test(description = "Verify functionality Get Window Handle")
     public void verifyFunctionsOfWindowHandle() {
         SoftAssert softAssert =  new SoftAssert();
         careerPage.clickOnLogin();
         careerPage.handleGetWindow1();
         careerPage.clickOnSignInBtn();
-        softAssert.assertEquals(careerPage.displayTitlePage(), "Career Opportunities: Sign In");
+        softAssert.assertTrue(careerPage.displayTitlePage(), "match");
         softAssert.assertAll();
 
     }
     @Test(description = "Verify the Functionality DropDown")
-    public void verifyDropDown(){
-        careerPage.clickOnFeedbackBtn();
-        careerPage.clickOnDropDown();
+    public void verifyDropDown() throws InterruptedException {
+        careerPage.clickOnLogin();
+        careerPage.handleGetWindow1();
+        careerPage.clickingOnLocation();
+        Thread.sleep(2000);
+
     }
     @AfterMethod
     public void tearDown() {

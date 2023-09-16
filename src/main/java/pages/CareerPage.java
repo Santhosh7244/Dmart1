@@ -6,6 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 import testbase.WebTestBase;
 import utility.Utility;
 
+import java.util.List;
+
 public class CareerPage extends WebTestBase {
     @FindBy(xpath = "//span[text()='Careers']")
     WebElement careerBtn;
@@ -14,13 +16,22 @@ public class CareerPage extends WebTestBase {
     WebElement signInBtn;
     @FindBy(xpath = "//div[@class='page_title page_accessible_title']")
     WebElement titlePageText;
-    @FindBy(xpath = "//span[text()='Feedback']")
-    WebElement feedbackBtn;
-    @FindBy(xpath = "(//div[@class='MuiAutocomplete-endAdornment'])[1]")
-    WebElement dropDownBtn;
-    @FindBy(xpath = "//input[@value='Andhra Pradesh']")
-    static
-    WebElement selectState;
+    @FindBy(xpath = "//input[@id='48:_selectInput']")
+    WebElement clickOnLocation;
+    @FindBy(xpath = "//div[@class='resizer-wrapper']//li")
+    List<WebElement> listOfLocation;
+    @FindBy(xpath = "(//input[@class='fd-checkbox fd-checkbox--compact'])[6]")
+    WebElement locationA1;
+    @FindBy(xpath = "//button[text()='Search Jobs']")
+    WebElement ClickOnSearch;
+    public void callDropDown(){
+        Utility.dropDownElement(listOfLocation,"Karnataka");
+    }
+    public void clickingOnLocation(){
+        clickOnLocation.click();
+        locationA1.click();
+        ClickOnSearch.click();
+    }
     public   CareerPage(){
         PageFactory.initElements(driver, this);
     }
@@ -37,16 +48,4 @@ public class CareerPage extends WebTestBase {
     public  boolean displayTitlePage(){
         return Utility.isDisplayedVerify(titlePageText);
     }
-
-    public void clickOnFeedbackBtn(){
-        feedbackBtn.click();
-    }
-    public void clickOnDropDown(){
-        dropDownBtn.click();
-    }
-
-    public void clickOnState(){
-        selectState.click();
-    }
-
 }

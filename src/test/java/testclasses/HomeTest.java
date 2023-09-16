@@ -40,10 +40,9 @@ public class HomeTest extends WebTestBase {
         homePage.clickOnCheckBox();
         softAssert.assertTrue(homePage.displayCheckBox(), "Should be selected");
         softAssert.assertAll();
-
     }
 
-    @Test(description = "Verify RadioButton functionality  ")
+    @Test(description = "Verify RadioButton functionality")
     public void verifyFunctionOfRadioBtn() {
         SoftAssert softAssert = new SoftAssert();
         homePage.clickOnLogin();
@@ -52,8 +51,8 @@ public class HomeTest extends WebTestBase {
         homePage.clickOnRadioBtn();
         softAssert.assertTrue(homePage.selectRadioBtn(), "Must be clickable");
         softAssert.assertAll();
-
     }
+
     @AfterMethod
     public void tearDown() {
         driver.quit();

@@ -35,9 +35,6 @@ public class HomePage extends WebTestBase {
     public void clickOnCheckBox() {
         Utility.waitUntilElementToBeClickable(checkBox);
     }
-    public  boolean selectCheckBox(){
-        return Utility.isSelectedVerify(checkBox);
-    }
     @FindBy(xpath = "(//input[@type='radio'])[2]")
     WebElement radioBtn;
 
